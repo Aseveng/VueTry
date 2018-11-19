@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Listen from '@/components/Listen'
 import Vfor from '@/components/Vfor'
 import RouteTest from '@/components/RouteTest'
 import home from '@/components/Aaa'
 import about from '@/components/Bbb'
+import User from '@/components/User'
+import Navigation from '@/components/Navigation'
 
 Vue.use(Router)
 
@@ -13,8 +15,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'RouteTest',
+      component: RouteTest
     },
     {
       path: '/vfor',
@@ -38,6 +40,14 @@ export default new Router({
     {
       path: '/about',
       component: about
+    },
+    {
+      path: '/user/:id',
+      component: User
+    },
+    {
+      path: '/navigation',
+      component: Navigation
     }
   ]
 })
