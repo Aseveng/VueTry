@@ -8,6 +8,8 @@ import home from '@/components/Aaa'
 import about from '@/components/Bbb'
 import User from '@/components/User'
 import Navigation from '@/components/Navigation'
+// import MainNavbar from '@/components/main-navbar'
+import Main from '@/components/main'
 
 Vue.use(Router)
 
@@ -15,8 +17,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'RouteTest',
-      component: RouteTest
+      name: Main,
+      component: Main
     },
     {
       path: '/vfor',
