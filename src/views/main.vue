@@ -1,7 +1,6 @@
 <template>
   <div>
     <main-navbar />
-
     <routeTest />
   </div>
 </template>
