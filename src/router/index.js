@@ -4,10 +4,12 @@ import home from '@/views/home'
 import Login from '@/views/Login'
 import Navigation from '@/views/Navigation'
 import Tab from '@/views/Tab'
+import Top from '@/views/Top'
+import Admin from '@/views/Admin'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
-// // 全局路由 无需嵌套上下左右布局
+// 全局路由 无需嵌套上下左右布局
 // const globalRoutes = [
 //   {
 //     path: '/404',
@@ -54,13 +56,24 @@ export default new Router({
     },
     {
       path: '/navigation',
+      name: 'navigation',
       component: Navigation,
       children: [
         {
           path: 'tab',
+          name: Tab,
           component: Tab
+        },
+        {
+          path: 'admin',
+          component: Admin
         }
       ]
+    },
+    {
+      path: '/top',
+      name: 'Tab',
+      component: Top
     }
 
     // routes: [

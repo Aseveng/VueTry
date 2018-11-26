@@ -6,9 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from '@/store'
+import httpRequest from '@/utils/httpRequest'
 
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 }
-
+Vue.prototype.$http = httpRequest
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
