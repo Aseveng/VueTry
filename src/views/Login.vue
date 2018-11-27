@@ -12,37 +12,61 @@
     </header>
     <!-- 对应的组件内容渲染到router-view中 -->
     <router-view></router-view>
-    <el-input v-model="admin"
-              style="width:200px"
-              placeholder="用户名">
+    <el-form :model="form">
+      <el-form-item>
+        <el-input v-model="form.admin"
+                  style="width:200px"
+                  placeholder="用户名">
 
-    </el-input>
-    <br />
-    <el-input v-model="password"
-              style="width:200px"
-              placeholder="密码 ">
+        </el-input>
+      </el-form-item>
 
-    </el-input>
-    <br />
+      <br />
+      <el-form-item>
+        <el-input type='password'
+                  v-model="form.password"
+                  style="width:200px"
+                  placeholder="密码 ">
 
-    <el-button type="primary"
-               style="width:160px"
-               v-on:click="Login">登录</el-button>
+        </el-input>
+      </el-form-item>
+      <br />
 
+      <el-button type="primary"
+                 style="width:160px"
+                 v-on:click="Login">登录</el-button>
+    </el-form>
   </div>
+
 </template>
 
 <script>
 export default {
   data () {
     return {
-      admin: '',
-      password: ''
+      form: {
+        admin: '',
+        password: ''
+
+      }
     }
   },
   methods: {
     Login: function () {
-      this.$router.push({ path: '/navigation' })
+      this.$http({
+        url: this.$http.commonUrl('login'),
+        method: 'post',
+        data: {
+          admin: this.form.admin,
+          password: this.form.password
+        }
+      }).then(({ data }) => {
+        this.$message({
+          message: data,
+          duration: 3000,
+          type: 'success'
+        })
+      })
     }
   }
 }

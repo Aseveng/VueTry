@@ -7,6 +7,7 @@
         <el-header style="background-color: white">
           <el-button @click="toHome">后台管理</el-button>
         </el-header>
+
         <el-menu :default-openeds="['1', '3']">
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-message"></i>导航一</template>
@@ -56,6 +57,8 @@
           </el-submenu>
         </el-menu>
       </el-aside>
+      <!-- <NavTop /> -->
+
       <router-view />
     </el-container>
   </div>
@@ -74,6 +77,7 @@
 </style>
 
 <script>
+import NavTop from './nav-top'
 import MainNavbar from './main-navbar'
 export default {
   data () {
@@ -87,7 +91,8 @@ export default {
     }
   },
   components: {
-    MainNavbar
+    MainNavbar,
+    NavTop
   },
   methods: {
     toHome () {

@@ -97,9 +97,17 @@ export default {
           firstName: 'Fred',
           lastName: 'Flintstone'
         }
+      }).then(({ data }) => {
+        if (data !== 0) {
+          this.$message({
+            message: data,
+            duration: 1000,
+            type: 'success'
+          })
+          //   this.$router.push({ path: '/login' })
+        }
       })
     }
-
   },
   data () {
     return {
