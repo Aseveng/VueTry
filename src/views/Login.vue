@@ -14,13 +14,12 @@
     <router-view></router-view>
     <el-form :model="form">
       <el-form-item>
-        <el-input v-model="form.admin"
+        <el-input v-model="form.username"
                   style="width:200px"
                   placeholder="用户名">
 
         </el-input>
       </el-form-item>
-
       <br />
       <el-form-item>
         <el-input type='password'
@@ -33,9 +32,15 @@
       <br />
 
       <el-button type="primary"
-                 style="width:160px"
-                 v-on:click="Login">登录</el-button>
+                 style="width:80px"
+                 v-on:click="Login">登录
+      </el-button>
+      <el-button type="primary"
+                 style="width:80px"
+                 v-on:click="Registe">注册
+      </el-button>
     </el-form>
+
   </div>
 
 </template>
@@ -57,7 +62,7 @@ export default {
         url: this.$http.commonUrl('login'),
         method: 'post',
         data: {
-          admin: this.form.admin,
+          username: this.form.username,
           password: this.form.password
         }
       }).then(({ data }) => {
@@ -66,7 +71,13 @@ export default {
           duration: 3000,
           type: 'success'
         })
+        if (data === '登录成功') {
+          this.$router.push({ path: '/navigation' })
+        }
       })
+    },
+    Registe: function () {
+      this.$router.push({ path: '/registe' })
     }
   }
 }

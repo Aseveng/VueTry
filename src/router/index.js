@@ -6,6 +6,7 @@ import Navigation from '@/views/Navigation'
 import Tab from '@/views/Tab'
 import Top from '@/views/Top'
 import Admin from '@/views/Admin'
+import Registe from '@/views/registe'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
@@ -74,6 +75,10 @@ export default new Router({
       path: '/top',
       name: 'Tab',
       component: Top
+    },
+    {
+      path: '/registe',
+      component: Registe
     }
 
     // routes: [
