@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/views/home'
 import Login from '@/views/Login'
 import Navigation from '@/views/Navigation'
 import Tab from '@/views/Tab'
 import Top from '@/views/Top'
 import Admin from '@/views/Admin'
 import Registe from '@/views/registe'
+import is404 from '@/components/common/404'
+import Head from '@/views/Head'
+import Sidebar from '@/views/Sidebar'
+import home from '@/views/home'
+import tag from '@/views/Tag'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
@@ -27,37 +31,24 @@ Vue.use(Router)
 // ]
 
 // const mainRoutes = []
-const phone = { template: '<div>phone</div>' }
-const tablet = { template: '<div>tablet</div>' }
-const computer = { template: '<div>computer</div>' }
+// const phone = { template: '<div>phone</div>' }
+// const tablet = { template: '<div>tablet</div>' }
+// const computer = { template: '<div>computer</div>' }
 
 export default new Router({
   routes: [
-    {
-      path: '/home', // 下面这个属性也不少，因为，我们是先进入home页面，才能进入子路由
-      component: home, // 子路由
-      children: [
-        {
-          path: 'phone',
-          component: phone
-        },
-        {
-          path: 'tablet',
-          component: tablet
-        },
-        {
-          path: 'computer',
-          component: computer
-        }
-      ]
-    },
     {
       path: '/',
       component: Login
     },
     {
+      path: '/home',
+      component: home
+    },
+    {
       path: '/navigation',
       name: 'navigation',
+      meta: { title: '系统主页' },
       component: Navigation,
       children: [
         {
@@ -79,6 +70,26 @@ export default new Router({
     {
       path: '/registe',
       component: Registe
+    },
+    {
+      path: '/404',
+      component: is404
+    },
+    {
+      path: '*',
+      redirect: '/404'
+    },
+    {
+      path: '/head',
+      component: Head
+    },
+    {
+      path: '/sidebar',
+      component: Sidebar
+    },
+    {
+      path: '/tag',
+      component: tag
     }
 
     // routes: [
