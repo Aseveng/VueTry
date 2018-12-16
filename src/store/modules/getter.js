@@ -18,6 +18,9 @@ export default {
     doneTodosCount: (state, getters) => {
       // 通过属性访问
       return getters.doneTodos.length
+    },
+    removeTodo: state => {
+      state.todos = state.todos.filter(({ id }) => id !== 4)
     }
   }
 }

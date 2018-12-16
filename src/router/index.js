@@ -11,6 +11,8 @@ import Head from '@/views/Head'
 import Sidebar from '@/views/Sidebar'
 import home from '@/views/home'
 import tag from '@/views/Tag'
+import vuexGetter from '@/views/vuexGetter'
+import vuexGetterToo from '@/views/vuexGetterToo'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
@@ -90,8 +92,15 @@ export default new Router({
     {
       path: '/tag',
       component: tag
+    },
+    {
+      path: '/vuexGetter',
+      component: vuexGetter
+    },
+    {
+      path: '/vuexGetterToo',
+      component: vuexGetterToo
     }
-
     // routes: [
     //   {
     //     path: '/',
@@ -133,10 +142,7 @@ export default new Router({
     //     path: '/tab',
     //     component: Tab
     //   },
-    //   {
-    //     path: '/vuexGetter',
-    //     component: vuexGetter
-    //   }
+
     //   // {
     //   //   path: '/vuexTest',
     //   //   component: vuexTest
