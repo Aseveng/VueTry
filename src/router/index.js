@@ -11,10 +11,10 @@ import Head from '@/views/Head'
 import Sidebar from '@/views/Sidebar'
 import home from '@/views/home'
 import tag from '@/views/Tag'
-import message from '@/views/message'
+import vuexGetter from '@/views/vuexGetter'
+import vuexGetterToo from '@/views/vuexGetterToo'import message from '@/views/message'
 import vuexTest from '@/views/vuexTest'
 import photo from '@/views/photo-view'
-
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
 // 全局路由 无需嵌套上下左右布局
@@ -121,12 +121,16 @@ export default new Router({
     {
       path: '/tag',
       component: tag
+	},    {
+      path: '/vuexGetter',
+      component: vuexGetter
     },
     {
+      path: '/vuexGetterToo',
+      component: vuexGetterToo
+    },    {
       path: '/photo',
-      component: photo
-    }
-
+      component: photo    }
     // routes: [
     //   {
     //     path: '/',
@@ -168,10 +172,7 @@ export default new Router({
     //     path: '/tab',
     //     component: Tab
     //   },
-    //   {
-    //     path: '/vuexGetter',
-    //     component: vuexGetter
-    //   }
+
     //   // {
     //   //   path: '/vuexTest',
     //   //   component: vuexTest
