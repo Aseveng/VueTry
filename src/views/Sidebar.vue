@@ -2,7 +2,7 @@
 <template>
   <div class="sidebar">
     <el-menu class="sidebar-el-menu"
-             :default-active="onRoutes"
+             :default-active="this.$router.path"
              :collapse="collapse"
              background-color="#324157"
              text-color="#bfcbd9"
@@ -53,7 +53,7 @@ export default {
       items: [
         {
           icon: 'el-icon-lx-home',
-          index: 'dashboard',
+          index: 'home',
           title: '系统首页'
         },
         {
@@ -63,7 +63,7 @@ export default {
         },
         {
           icon: 'el-icon-lx-copy',
-          index: 'tabs',
+          index: 'Admin',
           title: 'tab选项卡'
         },
         {
@@ -97,8 +97,8 @@ export default {
         },
         {
           icon: 'el-icon-lx-emoji',
-          index: 'icon',
-          title: '自定义图标'
+          index: 'message',
+          title: '消息通知'
         },
         {
           icon: 'el-icon-lx-favor',
@@ -127,6 +127,11 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    // onRoutes () {
+    //   return this.$route.path
+    // }
   }
 }
 </script>

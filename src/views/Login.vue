@@ -17,7 +17,6 @@
         <el-input v-model="form.username"
                   style="width:200px"
                   placeholder="用户名">
-
         </el-input>
       </el-form-item>
       <br />
@@ -71,8 +70,8 @@ export default {
           duration: 3000,
           type: 'success'
         })
-        if (data === '登录成功') {
-          this.$router.push({ path: '/navigation' })
+        if (data === '登录成功管理员' || data === '登录成功') {
+          this.$router.push({ path: '/home' })
         }
       })
     },

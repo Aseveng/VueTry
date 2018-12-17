@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/Login'
 import Navigation from '@/views/Navigation'
-import Tab from '@/views/Tab'
+import table from '@/views/Tab'
 import Top from '@/views/Top'
 import Admin from '@/views/Admin'
 import Registe from '@/views/registe'
@@ -11,6 +11,9 @@ import Head from '@/views/Head'
 import Sidebar from '@/views/Sidebar'
 import home from '@/views/home'
 import tag from '@/views/Tag'
+import message from '@/views/message'
+import vuexTest from '@/views/vuexTest'
+import photo from '@/views/photo-view'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
@@ -38,12 +41,34 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/login',
+      name: Login,
       component: Login
     },
     {
       path: '/home',
-      component: home
+      redirect: '/'
+    },
+    {
+      path: '/',
+      component: home,
+      children: [
+        {
+          path: '/table',
+          name: table,
+          component: table
+        },
+        {
+          path: '/Admin',
+          name: Admin,
+          component: Admin
+        },
+        {
+          path: '/message',
+          name: message,
+          component: message
+        }
+      ]
     },
     {
       path: '/navigation',
@@ -52,20 +77,26 @@ export default new Router({
       component: Navigation,
       children: [
         {
-          path: 'tab',
-          name: Tab,
-          component: Tab
+          path: 'table',
+          name: table,
+          component: table
         },
         {
-          path: 'admin',
+          path: 'Admin',
+          name: 'Admin',
           component: Admin
         }
       ]
     },
     {
       path: '/top',
-      name: 'Tab',
+      name: 'top',
       component: Top
+    },
+    {
+      path: '/vuexTest',
+      name: vuexTest,
+      component: vuexTest
     },
     {
       path: '/registe',
@@ -90,6 +121,10 @@ export default new Router({
     {
       path: '/tag',
       component: tag
+    },
+    {
+      path: '/photo',
+      component: photo
     }
 
     // routes: [

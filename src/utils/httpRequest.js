@@ -9,12 +9,13 @@ const http = axios.create({
   }
 })
 
+const API = process.env.BASE_API
 /**
  * 设置请求地址 简写
  *
  */
 http.commonUrl = path => {
-  return 'http://localhost:8099/' + path
+  return API + path
 }
 
 export default http
