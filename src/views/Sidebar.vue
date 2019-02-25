@@ -1,4 +1,4 @@
-
+// 左侧选择标签页
 <template>
   <div class="sidebar">
     <el-menu class="sidebar-el-menu"
@@ -54,76 +54,54 @@ export default {
         {
           icon: 'el-icon-lx-home',
           index: 'home',
-          title: '系统首页'
+          title: '食堂首页'
         },
         {
           icon: 'el-icon-lx-cascades',
-          index: 'table',
-          title: '基础表格'
-        },
-        {
-          icon: 'el-icon-lx-copy',
-          index: 'Admin',
-          title: 'tab选项卡'
-        },
-        {
-          icon: 'el-icon-lx-calendar',
-          index: '3',
-          title: '表单相关',
+          index: 'mealDetail',
+          title: '食堂详情',
           subs: [
             {
-              index: 'form',
-              title: '基本表单'
+              index: 'Canteen1',
+              title: '第一食堂'
             },
             {
-              index: '3-2',
-              title: '三级菜单',
-              subs: [
-                {
-                  index: 'editor',
-                  title: '富文本编辑器'
-                },
-                {
-                  index: 'markdown',
-                  title: 'markdown编辑器'
-                }
-              ]
+              index: 'Canteen2',
+              title: '第二食堂'
             },
             {
-              index: 'upload',
-              title: '文件上传'
+              index: 'Canteen3',
+              title: '第三食堂'
+            },
+            {
+              index: 'Canteen4',
+              title: '第四食堂'
+            },
+            {
+              index: 'Canteen5',
+              title: '第五食堂'
+            },
+            {
+              index: 'Canteen6',
+              title: '第六食堂'
             }
+
           ]
         },
         {
-          icon: 'el-icon-lx-emoji',
-          index: 'message',
-          title: '消息通知'
+          index: 'ShoppingCart',
+          title: '购物车'
         },
         {
-          icon: 'el-icon-lx-favor',
-          index: 'charts',
-          title: 'schart图表'
+          index: 'OrderDetail',
+          title: '我的订单'
         },
         {
-          icon: 'el-icon-rank',
-          index: 'drag',
-          title: '拖拽列表'
-        },
-        {
-          icon: 'el-icon-lx-warn',
-          index: '6',
-          title: '错误处理',
-          subs: [
-            {
-              index: 'permission',
-              title: '权限测试'
-            },
-            {
-              index: '404',
-              title: '404页面'
-            }
-          ]
+          index: 'UserInfo',
+          title: '个人信息'
+        }, {
+          index: 'mealDetail',
+          title: '食堂食堂详情'
         }
       ]
     }

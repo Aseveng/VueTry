@@ -4,9 +4,9 @@
     <v-sidebar></v-sidebar>|
     <div class="content-box">
       <div class="content">
+        <!-- 切换效果，淡入淡出 -->
         <transition name="move"
                     mode="out-in">
-
           <router-view></router-view>
 
         </transition>
@@ -14,11 +14,11 @@
     </div>
   </div>
 </template>
-
 <script>
 import vHead from '@/views/Head'
 import vSidebar from '@/views/Sidebar'
 import vTags from '@/views/Tag'
+import vCanteen from '@/views/CanteenIndex'
 // import bus from '@/utils/bus'
 
 export default {
@@ -29,7 +29,7 @@ export default {
     }
   },
   components: {
-    vHead, vSidebar, vTags
+    vHead, vSidebar, vTags, vCanteen
   }
   // created () {
   //   bus.$on('collapse', msg => {

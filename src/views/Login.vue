@@ -4,7 +4,7 @@
       <!-- router-link 定义点击后导航到哪个路径下 -->
       <img src="../assets/logo.png">
       <br />
-      <p class="login-home">进入后台管理</p>
+      <p class="login-home">进入食堂订餐</p>
       <!-- <router-link to="/home">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/user/123">User123</router-link>

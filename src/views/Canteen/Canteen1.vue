@@ -9,7 +9,7 @@
     </el-table-column>
     <el-table-column prop="mealName"
                      label="名称"
-                     width="300">
+                     width="120">
     </el-table-column>
     <el-table-column prop="score"
                      label="评分"
@@ -21,9 +21,12 @@
     </el-table-column>
     <el-table-column prop="address"
                      label="所属食堂"
+                     width="300">
+    </el-table-column>
+    <el-table-column prop="zip"
+                     label="邮编"
                      width="120">
     </el-table-column>
-
     <el-table-column fixed="right"
                      label="操作"
                      width="100">
@@ -33,8 +36,8 @@
                    @click="getData">查看</el-button>
         <el-button type="text"
                    size="small"
-                   @click="dialogFormVisible = true">下单</el-button>
-        <!-- <el-dialog title="信息编辑"
+                   @click="dialogFormVisible = true">编辑</el-button>
+        <el-dialog title="信息编辑"
                    :visible.sync="dialogFormVisible"
                    :modal-append-to-body='false'>
           <el-form :model="form">
@@ -77,7 +80,7 @@
             <el-button type="primary"
                        @click="dialogFormVisible = false">确 定</el-button>
           </div>
-        </el-dialog> -->
+        </el-dialog>
       </template>
     </el-table-column>
   </el-table>

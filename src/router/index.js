@@ -12,9 +12,16 @@ import Sidebar from '@/views/Sidebar'
 import home from '@/views/home'
 import tag from '@/views/Tag'
 import vuexGetter from '@/views/vuexGetter'
-import vuexGetterToo from '@/views/vuexGetterToo'import message from '@/views/message'
+import vuexGetterToo from '@/views/vuexGetterToo'
+// import message from '@/views/message'
 import vuexTest from '@/views/vuexTest'
 import photo from '@/views/photo-view'
+import Canteen1 from '@/views/Canteen/Canteen1'
+import ShoppingCart from '@/views/ShoppingCart'
+import UserInfo from '@/views/UserInfo'
+import OrderDetail from '@/views/OrderDetail'
+import mealDetail from '@/views/mealDetail'
+
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
 // 全局路由 无需嵌套上下左右布局
@@ -46,40 +53,90 @@ export default new Router({
       component: Login
     },
     {
-      path: '/home',
-      redirect: '/'
-    },
-    {
       path: '/',
+      redirect: '/home'
+    },
+
+    {
+      path: '/home',
       component: home,
       children: [
         {
           path: '/table',
           name: table,
-          component: table
+          component: table,
+          children: [
+            {
+              path: '/Canteen1',
+              name: Canteen1,
+              component: Canteen1
+            },
+            {
+              path: '/Canteen2',
+              name: Canteen1,
+              component: Canteen1
+            },
+            {
+              path: '/Canteen3',
+              name: Canteen1,
+              component: Canteen1
+            },
+            {
+              path: '/Canteen4',
+              name: Canteen1,
+              component: Canteen1
+            },
+            {
+              path: '/Canteen5',
+              name: Canteen1,
+              component: Canteen1
+            },
+            {
+              path: '/Canteen6',
+              name: Canteen1,
+              component: Canteen1
+            }
+          ]
         },
         {
-          path: '/Admin',
-          name: Admin,
-          component: Admin
+          path: '/ShoppingCart',
+          name: ShoppingCart,
+          component: ShoppingCart
         },
         {
-          path: '/message',
-          name: message,
-          component: message
+          path: '/UserInfo',
+          name: UserInfo,
+          component: UserInfo
+        },
+        {
+          path: '/OrderDetail',
+          name: OrderDetail,
+          component: OrderDetail
+        },
+        {
+          path: '/mealDetail',
+          name: mealDetail,
+          component: mealDetail
         }
       ]
     },
     {
       path: '/navigation',
       name: 'navigation',
-      meta: { title: '系统主页' },
+      meta: { title: '食堂' },
       component: Navigation,
       children: [
         {
           path: 'table',
           name: table,
-          component: table
+          component: table,
+          children: [
+            {
+              path: 'Canteen1',
+              name: Canteen1,
+              component: Canteen1
+            }
+          ]
         },
         {
           path: 'Admin',
@@ -121,16 +178,19 @@ export default new Router({
     {
       path: '/tag',
       component: tag
-	},    {
+    },
+    {
       path: '/vuexGetter',
       component: vuexGetter
     },
     {
       path: '/vuexGetterToo',
       component: vuexGetterToo
-    },    {
+    },
+    {
       path: '/photo',
-      component: photo    }
+      component: photo
+    }
     // routes: [
     //   {
     //     path: '/',

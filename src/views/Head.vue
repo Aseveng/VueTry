@@ -5,7 +5,7 @@
          @click="collapseChage">
       <i class="el-icon-menu"></i>
     </div>
-    <div class="logo">后台管理系统</div>
+    <div class="logo">食堂订餐系统</div>
     <div class="header-right">
       <div class="header-user-con">
         <!-- 全屏显示 -->
@@ -41,14 +41,55 @@
             {{username}} <i class="el-icon-caret-bottom"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <a href="#"
-               target="_blank">
-              <el-dropdown-item>关于作者</el-dropdown-item>
+            <a target="_blank">
+              <el-dropdown-item command="changeInfo">修改密码</el-dropdown-item>
             </a>
-            <a href="#"
-               target="_blank">
-              <el-dropdown-item>修改密码</el-dropdown-item>
-            </a>
+            <!-- <template>
+              <el-dialog title="信息编辑"
+                         :visible.sync="dialogFormVisible"
+                         :modal-append-to-body='false'>
+                <el-form :model="form">
+                  <el-form-item label="日期"
+                                :label-width="formLabelWidth">
+                    <el-date-picker v-model="form.date"
+                                    type="date"
+                                    placeholder="选择日期">
+                    </el-date-picker>
+                  </el-form-item>
+                  <el-form-item label="名称"
+                                :label-width="formLabelWidth">
+                    <el-input v-model="form.name"
+                              autocomplete="off"></el-input>
+                  </el-form-item>
+                  <el-form-item label="省份"
+                                :label-width="formLabelWidth">
+                    <el-input v-model="form.province"
+                              autocomplete="off"></el-input>
+                  </el-form-item>
+                  <el-form-item label="地区"
+                                :label-width="formLabelWidth">
+                    <el-input v-model="form.map"
+                              autocomplete="off"></el-input>
+                  </el-form-item>
+                  <el-form-item label="地址"
+                                :label-width="formLabelWidth">
+                    <el-input v-model="form.address"
+                              autocomplete="off"></el-input>
+                  </el-form-item>
+                  <el-form-item label="邮编"
+                                :label-width="formLabelWidth">
+                    <el-input v-model="form.youbian"
+                              autocomplete="off"></el-input>
+                  </el-form-item>
+                </el-form>
+                <div slot="footer"
+                     class="dialog-footer">
+                  <el-button @click="dialogFormVisible = false">取 消</el-button>
+                  <el-button type="primary"
+                             @click="dialogFormVisible = false">确 定</el-button>
+                </div>
+              </el-dialog>
+            </template> -->
             <el-dropdown-item divided
                               command="loginout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
@@ -61,7 +102,21 @@
 <script>
 // import bus from '@/utils/bus'
 export default {
+  date () {
+    return {
+      dialogFormVisible: false,
+      dialogTableVisible: false
+
+    }
+  },
   methods: {
+    handleCommand (command) {
+      if (command === 'loginout') {
+        this.$router.push({ path: '/login' })
+      }
+      if (command === 'changeInfo') {
+      }
+    }
     // collapseChage: {
     //   collapseChage () {
     //     this.collapse = !this.collapse

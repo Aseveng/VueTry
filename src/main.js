@@ -7,10 +7,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from '@/store'
 import httpRequest from '@/utils/httpRequest'
-import preview from 'vue-photo-preview'
-import 'vue-photo-preview/dist/skin.css'
 
-Vue.use(preview)
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 }
 Vue.prototype.$http = httpRequest
 Vue.use(ElementUI)

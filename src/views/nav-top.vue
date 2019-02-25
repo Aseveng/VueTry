@@ -30,21 +30,6 @@
             </el-badge>
           </template>
         </el-menu-item>
-        <el-menu-item index="2">
-          <el-badge value="hot">
-            <a href="//www.renren.io/"
-               target="_blank">官方社区</a>
-          </el-badge>
-        </el-menu-item>
-        <el-submenu index="3">
-          <template slot="title">Git源码</template>
-          <el-menu-item index="2-1"><a href="//github.com/daxiongYang/renren-fast-vue"
-               target="_blank">前端</a></el-menu-item>
-          <el-menu-item index="2-2"><a href="//git.oschina.net/renrenio/renren-fast"
-               target="_blank">后台</a></el-menu-item>
-          <el-menu-item index="2-3"><a href="//git.oschina.net/renrenio/renren-generator"
-               target="_blank">代码生成器</a></el-menu-item>
-        </el-submenu>
         <el-menu-item class="site-navbar__avatar"
                       index="3">
           <el-dropdown :show-timeout="0"
@@ -53,7 +38,7 @@
 
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>修改密码</el-dropdown-item>
+              <el-dropdown-item>修改信息</el-dropdown-item>
               <el-dropdown-item>退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
