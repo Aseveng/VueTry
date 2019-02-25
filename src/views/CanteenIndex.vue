@@ -2,10 +2,10 @@
   <!-- 菜品详情 -->
   <div>
     <el-row>
-      <el-col :span="8"
+      <el-col :span="20"
               v-for="(o, index) in 2"
               :key="o"
-              :offset="index > 0 ? 2 : 0">
+              :offset="index > 0 ? 2: 0">
         <el-card :body-style="{ padding: '0px' }">
           <img src="../assets/logo.png"
                class="image">
