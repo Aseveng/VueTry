@@ -1,162 +1,149 @@
 <template>
-  <el-table :data="tableData"
-            border
-            style="width: 100%">
-    <el-table-column fixed
-                     prop="No"
-                     label="排名"
-                     width="150">
-    </el-table-column>
-    <el-table-column prop="mealName"
-                     label="名称"
-                     width="120">
-    </el-table-column>
-    <el-table-column prop="score"
-                     label="评分"
-                     width="120">
-    </el-table-column>
-    <el-table-column prop="price"
-                     label="价格"
-                     width="120">
-    </el-table-column>
-    <el-table-column prop="address"
-                     label="所属食堂"
-                     width="300">
-    </el-table-column>
-    <el-table-column prop="zip"
-                     label="邮编"
-                     width="120">
-    </el-table-column>
-    <el-table-column fixed="right"
-                     label="操作"
-                     width="100">
-      <template slot-scope="scope">
-        <el-button type="text"
-                   size="small"
-                   @click="getData">查看</el-button>
-        <el-button type="text"
-                   size="small"
-                   @click="dialogFormVisible = true">编辑</el-button>
-        <el-dialog title="信息编辑"
-                   :visible.sync="dialogFormVisible"
-                   :modal-append-to-body='false'>
-          <el-form :model="form">
-            <el-form-item label="日期"
-                          :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date"
-                              type="date"
-                              placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-            <el-form-item label="名称"
-                          :label-width="formLabelWidth">
-              <el-input v-model="form.name"
-                        autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="省份"
-                          :label-width="formLabelWidth">
-              <el-input v-model="form.province"
-                        autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="地区"
-                          :label-width="formLabelWidth">
-              <el-input v-model="form.map"
-                        autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="地址"
-                          :label-width="formLabelWidth">
-              <el-input v-model="form.address"
-                        autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="邮编"
-                          :label-width="formLabelWidth">
-              <el-input v-model="form.youbian"
-                        autocomplete="off"></el-input>
-            </el-form-item>
-          </el-form>
-          <div slot="footer"
-               class="dialog-footer">
-            <el-button @click="dialogFormVisible = false">取 消</el-button>
-            <el-button type="primary"
-                       @click="dialogFormVisible = false">确 定</el-button>
-          </div>
-        </el-dialog>
-      </template>
-    </el-table-column>
-  </el-table>
+  <!-- 菜品详情 -->
+  <div class="wrapper">
+    <v-head> </v-head>
+    <v-sidebar></v-sidebar>|
+    <div class="content-box">
+      <div class="content">
+        <!-- 切换效果，淡入淡出 -->
+        <transition name="move"
+                    mode="out-in">
+          <el-row>
+            <el-col :span="6"
+                    v-for="(o, index) in 3"
+                    :key="o"
+                    :offset="index > 0 ? 2 : 0">
+              <el-card :body-style="{ padding: '12px'}">
+                <img :src=canteenWindow
+                     class="image"
+                     alt="1">
+                <div style="padding: 14px;">
+                  <span>食堂窗口</span>
+                  <div class="bottom clearfix">
+                    <el-button type="text"
+                               class="button"
+                               @click="intoDetail">进入此窗口</el-button>
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+            <el-col></el-col>
+            <!-- <el-col :span="6"></el-col> -->
+            <!-- <el-col :span="6"
+                    v-for="(o, index) in 3"
+                    :key="o"
+                    :offset="index > 0 ? 2 : 0">
+              <el-card :body-style="{ padding: '0px' }">
+                <img :src=canteenWindow
+                     class="image"
+                     alt="1">
+                <div style="padding: 14px;">
+                  <span>食堂窗口</span>
+                  <div class="bottom clearfix">
+                    <el-button type="text"
+                               class="button"
+                               @click="intoDetail">进入此窗口</el-button>
+                  </div>
+                </div>
+              </el-card>
+            </el-col> -->
+          </el-row>
+          <router-view></router-view>
+        </transition>
+      </div>
+    </div>
+  </div>
 </template>
+<script>
+import vHead from '@/views/Head'
+import vSidebar from '@/views/Sidebar'
+import vTags from '@/views/Tag'
+import vCanteen from '@/views/CanteenIndex'
+// import bus from '@/utils/bus'
+
+export default {
+  data () {
+    return {
+      tagsList: [],
+      collapse: false
+    }
+  },
+  components: {
+    vHead, vSidebar, vTags, vCanteen
+  }
+  // created () {
+  //   bus.$on('collapse', msg => {
+  //     this.collapse = msg
+  //   })
+
+  //   // 只有在标签页列表里的页面才使用keep-alive，即关闭标签之后就不保存到内存中了。
+  //   bus.$on('tags', msg => {
+  //     let arr = []
+  //     for (let i = 0, len = msg.length; i < len; i++) {
+  //       msg[i].name && arr.push(msg[i].name)
+  //     }
+  //     this.tagsList = arr
+  //   })
+  // }
+}
+</script>
+    <style>
+.time {
+  font-size: 13px;
+  color: #999;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.button {
+  padding: 0;
+  float: right;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+</style>
 
 <script>
 export default {
-  methods: {
-    getData () {
-      this.$http({
-        url: this.$http.commonUrl('vueuser'),
-        method: 'post',
-        data: {
-          firstName: 'Fred',
-          lastName: 'Flintstone'
-        }
-      }).then(({ data }) => {
-        if (data !== 0) {
-          this.$message({
-            message: data,
-            duration: 1000,
-            type: 'success'
-          })
-          //   this.$router.push({ path: '/login' })
-        }
-      })
-    }
-  },
   data () {
     return {
-      // tableData: [{
-      //   date: '2016-05-03',
-      //   name: '王小虎',
-      //   province: '上海',
-      //   city: '普陀区',
-      //   address: '上海市普陀区金沙江路 1518 弄',
-      //   zip: 200333
-      // }, {
-      //   date: '2016-05-02',
-      //   name: '王小虎',
-      //   province: '上海',
-      //   city: '普陀区',
-      //   address: '上海市普陀区金沙江路 1518 弄',
-      //   zip: 200333
-      // }, {
-      //   date: '2016-05-04',
-      //   name: '王小虎',
-      //   province: '上海',
-      //   city: '普陀区',
-      //   address: '上海市普陀区金沙江路 1518 弄',
-      //   zip: 200333
-      // }, {
-      //   date: '2016-05-01',
-      //   name: '王小虎',
-      //   province: '上海',
-      //   city: '普陀区',
-      //   address: '上海市普陀区金沙江路 1518 弄',
-      //   zip: 200333
-      // }],
-      dialogTableVisible: false,
-      dialogFormVisible: false,
-      form: {
-        date: '',
-        name: '',
-        province: '',
-        map: '',
-        address: '',
-        youbian: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
-      },
-      formLabelWidth: '120px'
+      canteenWindow: '../../static/cantennWindow.jpg',
+      imgurl: '',
+      currentDate: new Date()
+    }
+  },
+  methods: {
+    intoDetail: function () {
+      // alert("1")
+      this.$router.push({ path: '/Canteen2' })
+    },
+    sss: function () {
+      this.$http({
+        url: this.$http.commonUrl('meal/listMeal')
+      }).then((res) => {
+        this.imgurl = (res.data.data)
+        // alert(res.data.data)
+        // console.lop(res.data)
+      })
+    },
+    Registe: function () {
+      this.$router.push({ path: '/registe' })
     }
   }
 }

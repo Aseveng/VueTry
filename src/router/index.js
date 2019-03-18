@@ -16,11 +16,16 @@ import vuexGetterToo from '@/views/vuexGetterToo'
 // import message from '@/views/message'
 import vuexTest from '@/views/vuexTest'
 import photo from '@/views/photo-view'
-import Canteen1 from '@/views/Canteen/Canteen1'
 import ShoppingCart from '@/views/ShoppingCart'
 import UserInfo from '@/views/UserInfo'
 import OrderDetail from '@/views/OrderDetail'
 import mealDetail from '@/views/mealDetail'
+import WindowDetail from '@/views/WindowDetail'
+import Canteen1 from '@/views/Canteen/Canteen1'
+import Canteen2 from '@/views/Canteen/Canteen2'
+
+import OneMeal from '@/views/OneMeal'
+import Manage from '@/views/Manage'
 
 Vue.use(Router)
 // const _import = require('./import-' + process.env.NODE_ENV)
@@ -56,7 +61,11 @@ export default new Router({
       path: '/',
       redirect: '/home'
     },
-
+    {
+      path: '/WindowDetail',
+      name: WindowDetail,
+      component: WindowDetail
+    },
     {
       path: '/home',
       component: home,
@@ -72,9 +81,14 @@ export default new Router({
               component: Canteen1
             },
             {
+              path: '/WindowDetail',
+              name: WindowDetail,
+              component: WindowDetail
+            },
+            {
               path: '/Canteen2',
-              name: Canteen1,
-              component: Canteen1
+              name: Canteen2,
+              component: Canteen2
             },
             {
               path: '/Canteen3',
@@ -104,6 +118,16 @@ export default new Router({
           component: ShoppingCart
         },
         {
+          path: '/OneMeal',
+          name: OneMeal,
+          component: OneMeal
+        },
+        {
+          path: '/Manage',
+          name: Manage,
+          component: Manage
+        },
+        {
           path: '/UserInfo',
           name: UserInfo,
           component: UserInfo
@@ -114,9 +138,33 @@ export default new Router({
           component: OrderDetail
         },
         {
+          path: '/WindowDetail',
+          name: WindowDetail,
+          component: WindowDetail
+        },
+        {
           path: '/mealDetail',
           name: mealDetail,
-          component: mealDetail
+          component: mealDetail,
+          children: [
+            {
+              path: '/WindowDetail',
+              name: WindowDetail,
+              component: WindowDetail
+            }
+          ]
+        },
+        {
+          path: '/Canteen1',
+          name: Canteen1,
+          component: Canteen1,
+          children: [
+            {
+              path: '/WindowDetail',
+              name: WindowDetail,
+              component: WindowDetail
+            }
+          ]
         }
       ]
     },

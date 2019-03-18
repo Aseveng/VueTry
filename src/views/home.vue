@@ -8,7 +8,6 @@
         <transition name="move"
                     mode="out-in">
           <router-view></router-view>
-
         </transition>
       </div>
     </div>
@@ -49,6 +48,35 @@ export default {
 </script>
 
 <style>
+.time {
+  font-size: 13px;
+  color: #999;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.button {
+  padding: 0;
+  float: right;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
 .wrapper {
   width: 100%;
   height: 100%;

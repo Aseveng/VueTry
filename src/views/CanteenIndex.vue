@@ -7,12 +7,11 @@
               :key="o"
               :offset="index > 0 ? 2: 0">
         <el-card :body-style="{ padding: '0px' }">
-          <img src="../assets/logo.png"
+          <img :src="imurl"
                class="image">
           <div style="padding: 14px;">
             <span>好吃的汉堡</span>
             <div class="bottom clearfix">
-              <time class="time">{{ currentDate }}</time>
               <el-button type="text"
                          class="button">操作按钮</el-button>
             </div>
@@ -59,8 +58,26 @@
 export default {
   data () {
     return {
+      igurl: '',
       currentDate: new Date()
     }
+  },
+  methods: {
+    sss: function () {
+      this.$http({
+        url: this.$http.commonUrl('meal/listmeal')
+      }).then(({ res }) => {
+        if (res === '登录成功管理员' || res === '登录成功') {
+          this.$router.push({ path: '/home' })
+        }
+        const imgurl = res.imgurl
+        this.igurl = imgurl
+      })
+    },
+    Registe: function () {
+      this.$router.push({ path: '/registe' })
+    }
   }
+
 }
 </script>

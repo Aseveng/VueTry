@@ -9,7 +9,7 @@
     </el-table-column>
     <el-table-column prop="mealName"
                      label="名称"
-                     width="300">
+                     width="120">
     </el-table-column>
     <el-table-column prop="score"
                      label="评分"
@@ -21,9 +21,12 @@
     </el-table-column>
     <el-table-column prop="address"
                      label="所属食堂"
+                     width="300">
+    </el-table-column>
+    <el-table-column prop="zip"
+                     label="邮编"
                      width="120">
     </el-table-column>
-
     <el-table-column fixed="right"
                      label="操作"
                      width="100">
@@ -33,8 +36,8 @@
                    @click="getData">查看</el-button>
         <el-button type="text"
                    size="small"
-                   @click="dialogFormVisible = true">下单</el-button>
-        <!-- <el-dialog title="信息编辑"
+                   @click="dialogFormVisible = true">编辑</el-button>
+        <el-dialog title="信息编辑"
                    :visible.sync="dialogFormVisible"
                    :modal-append-to-body='false'>
           <el-form :model="form">
@@ -77,7 +80,7 @@
             <el-button type="primary"
                        @click="dialogFormVisible = false">确 定</el-button>
           </div>
-        </el-dialog> -->
+        </el-dialog>
       </template>
     </el-table-column>
   </el-table>
@@ -87,40 +90,56 @@
 export default {
   methods: {
     getData () {
-      this.$router.push({ path: '/registe' })
+      this.$http({
+        url: this.$http.commonUrl('vueuser'),
+        method: 'post',
+        data: {
+          firstName: 'Fred',
+          lastName: 'Flintstone'
+        }
+      }).then(({ data }) => {
+        if (data !== 0) {
+          this.$message({
+            message: data,
+            duration: 1000,
+            type: 'success'
+          })
+          //   this.$router.push({ path: '/login' })
+        }
+      })
     }
   },
   data () {
     return {
-      tableData: [{
-        No: '2016-05-03',
-        mealName: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }, {
-        No: '2016-05-02',
-        mealName: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }],
+      // tableData: [{
+      //   date: '2016-05-03',
+      //   name: '王小虎',
+      //   province: '上海',
+      //   city: '普陀区',
+      //   address: '上海市普陀区金沙江路 1518 弄',
+      //   zip: 200333
+      // }, {
+      //   date: '2016-05-02',
+      //   name: '王小虎',
+      //   province: '上海',
+      //   city: '普陀区',
+      //   address: '上海市普陀区金沙江路 1518 弄',
+      //   zip: 200333
+      // }, {
+      //   date: '2016-05-04',
+      //   name: '王小虎',
+      //   province: '上海',
+      //   city: '普陀区',
+      //   address: '上海市普陀区金沙江路 1518 弄',
+      //   zip: 200333
+      // }, {
+      //   date: '2016-05-01',
+      //   name: '王小虎',
+      //   province: '上海',
+      //   city: '普陀区',
+      //   address: '上海市普陀区金沙江路 1518 弄',
+      //   zip: 200333
+      // }],
       dialogTableVisible: false,
       dialogFormVisible: false,
       form: {

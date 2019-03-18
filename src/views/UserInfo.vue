@@ -3,7 +3,8 @@
            :rules="rules"
            ref="ruleForm"
            label-width="100px"
-           class="demo-ruleForm">
+           class="demo-ruleForm"
+           style="width:600px">
     <el-form-item label="电话号码"
                   prop="phoneNumber">
       <el-input v-model="ruleForm.phoneNumber"></el-input>
@@ -16,7 +17,7 @@
                   prop="Username">
       <el-input v-model="ruleForm.Username"></el-input>
     </el-form-item>
-    <el-form-item label="密码"
+    <el-form-item label="新密码"
                   prop="password">
       <el-input type="password"
                 v-model="ruleForm.password"></el-input>
@@ -41,41 +42,39 @@ export default {
   data () {
     return {
       ruleForm: {
-        phone: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
+        phoneNumber: '1781111111',
+        Name: '张三',
+        Username: 'zhangsan11',
+        // password: false,
         type: [],
-        resource: '',
-        desc: ''
+        address: 'xxxxxxxxxx'
       },
       visible: true,
-      inputType: true,
-      rules: {
-        name: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-        ],
-        region: [
-          { required: true, message: '请选择活动区域', trigger: 'change' }
-        ],
-        date1: [
-          { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-        ],
-        date2: [
-          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-        ],
-        type: [
-          { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
-        ],
-        resource: [
-          { required: true, message: '请选择活动资源', trigger: 'change' }
-        ],
-        desc: [
-          { required: true, message: '请填写活动形式', trigger: 'blur' }
-        ]
-      }
+      inputType: true
+      // rules: {
+      //   name: [
+      //     { required: true, message: '请输入活动名称', trigger: 'blur' },
+      //     { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+      //   ],
+      //   region: [
+      //     { required: true, message: '请选择活动区域', trigger: 'change' }
+      //   ],
+      //   date1: [
+      //     { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+      //   ],
+      //   date2: [
+      //     { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+      //   ],
+      //   type: [
+      //     { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+      //   ],
+      //   resource: [
+      //     { required: true, message: '请选择活动资源', trigger: 'change' }
+      //   ],
+      //   desc: [
+      //     { required: true, message: '请填写活动形式', trigger: 'blur' }
+      //   ]
+      // }
     }
   },
   methods: {

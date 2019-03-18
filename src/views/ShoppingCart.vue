@@ -13,21 +13,17 @@
                          width="75">
         </el-table-column>
         <el-table-column label="名称"
-                         width="120">
+                         width="320">
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
         <el-table-column prop="price"
                          label="价格"
-                         width="120">
-        </el-table-column>
-        <el-table-column prop="address"
-                         label="地址"
-                         show-overflow-tooltip>
+                         width="320">
         </el-table-column>
 
         <el-table-column fixed="right"
                          label="操作"
-                         width="120">
+                         width="220">
           <template slot-scope="scope">
             <!-- 删除该行 -->
             <el-button @click.native.prevent="deleteRow(scope.$index, tableData3)"
@@ -44,7 +40,7 @@
 
       <el-button type="primary"
                  size="medium"
-                 @click="handleSelectionChange()">立即下单</el-button>
+                 @click="handleSelectionChange()">结算</el-button>
     </div>
   </div>
 </template>
